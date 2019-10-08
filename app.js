@@ -6,7 +6,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 mongoose
-  .connect(process.env.DB || "mongodb://localhost/jaya-tech-challenge", {
+  .connect(process.env.DB || "mongodb://localhost/tech-challenge", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -27,6 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 const auth = require("./routes/auth");
+const sort = require("./routes/sort");
 app.use("/", auth);
+app.use("/", sort);
 
 module.exports = app;
