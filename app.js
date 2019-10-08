@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-const index = require("./routes/index");
-app.use("/", index);
+const auth = require("./routes/auth");
+app.use("/", auth);
 
 module.exports = app;
